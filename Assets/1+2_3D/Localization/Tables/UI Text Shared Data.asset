@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UI Text Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: UI Text
+  m_TableCollectionNameGuidString: b0aaff6bc2f52654398480ea77bfe1b8
+  m_Entries:
+  - m_Id: 10381434880
+    m_Key: Key_Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59521900544
+    m_Key: Key_Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 105613107200
+    m_Key: Key_Quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141302439936
+    m_Key: Key_Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 227407306752
+    m_Key: Key_Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 251323228160
+    m_Key: Key_AudioVolume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 339617521664
+    m_Key: Key_MuteToggle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380390350848
+    m_Key: Key_Restart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 321394609496064
+    m_Key: Key_Score
+    m_Metadata:
+      m_Items: []
+  - m_Id: 323543074611200
+    m_Key: Key_BestScore
+    m_Metadata:
+      m_Items: []
+  - m_Id: 323671093157888
+    m_Key: Key_TotalTime
+    m_Metadata:
+      m_Items: []
+  - m_Id: 411690915602432
+    m_Key: Key_Min
+    m_Metadata:
+      m_Items: []
+  - m_Id: 411751137419264
+    m_Key: Key_Sec
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    id: 0
+  references:
+    version: 1
+    00000000:
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1651161288667

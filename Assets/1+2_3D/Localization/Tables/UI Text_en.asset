@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UI Text_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: b0aaff6bc2f52654398480ea77bfe1b8, type: 2}
+  m_Metadata:
+    m_Items:
+    - id: 0
+  m_TableData:
+  - m_Id: 10381434880
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59521900544
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 105613107200
+    m_Localized: Quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141302439936
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 227407306752
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 251323228160
+    m_Localized: Audio Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 339617521664
+    m_Localized: Mute
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380390350848
+    m_Localized: Restart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 321394609496064
+    m_Localized: 'Your score: '
+    m_Metadata:
+      m_Items:
+      - id: 0
+  - m_Id: 323543074611200
+    m_Localized: 'Best score: '
+    m_Metadata:
+      m_Items:
+      - id: 0
+  - m_Id: 323671093157888
+    m_Localized: 'Total time: '
+    m_Metadata:
+      m_Items:
+      - id: 0
+  - m_Id: 411690915602432
+    m_Localized: ' min '
+    m_Metadata:
+      m_Items:
+      - id: 0
+  - m_Id: 411751137419264
+    m_Localized: ' sec '
+    m_Metadata:
+      m_Items:
+      - id: 0
+  references:
+    version: 1
+    00000000:
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 002088834e2401000020888c60260100002008be422601000020c8426e760100002048487c760100
