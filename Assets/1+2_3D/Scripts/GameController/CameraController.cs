@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets._1_2_3D.Scripts.GameController
+namespace _1_2_3D.Scripts.GameController
 {
     public class CameraController : MonoBehaviour
     {

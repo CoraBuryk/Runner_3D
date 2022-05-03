@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace _1_2_3D.Scripts.GameController
+namespace _1_2_3D.Scripts.ViewController
 {
     public class RoadGenerator : MonoBehaviour
     {

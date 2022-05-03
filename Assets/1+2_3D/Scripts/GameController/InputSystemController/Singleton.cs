@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace _1_2_3D.Scripts
+namespace _1_2_3D.Scripts.GameController.InputSystemController
 {
     public class Singleton <T> : MonoBehaviour
         where T : Component

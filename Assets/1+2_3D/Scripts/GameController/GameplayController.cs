@@ -1,4 +1,5 @@
 ﻿using _1_2_3D.Scripts.ViewController.Animations;
+using _1_2_3D.Scripts.ViewController.Audio;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +16,7 @@ namespace _1_2_3D.Scripts.GameController
         [SerializeField] private GameObject _examplePrefab;
         [SerializeField] private PlayerAnimator _playerAnimator;
         [SerializeField] private Bone bone;
-        [SerializeField] private PlayerPref _playerPref;
+        [SerializeField] private PlayerPreferences _playerPref;
         // [SerializeField] private GameOverMenu _gameOverMenu;
         [SerializeField] private AudioEffects _audioEffects;
         //[SerializeField] private MainMenuAnimations _mainMenuAnimations;

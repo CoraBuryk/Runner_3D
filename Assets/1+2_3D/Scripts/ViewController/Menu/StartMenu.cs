@@ -10,11 +10,9 @@ namespace _1_2_3D.Scripts.ViewController.Menu
         [SerializeField] private Button _startButton;
         [SerializeField] private Button _exitButton;
         [SerializeField] private Button _settingsButton;
-        //[SerializeField] private Button _scoreButton;
         [SerializeField] private GameObject _settingsPanel;
         [SerializeField] private GameObject _startPanel;
         [SerializeField] private PlayerAnimator _playerAnimator;
-        //[SerializeField] private GameObject _scorePanel;
         //[SerializeField] private StartMenuAnimations _startMenuAnimations;
 
         private bool _isOpened = false;
@@ -24,7 +22,6 @@ namespace _1_2_3D.Scripts.ViewController.Menu
             _startButton.onClick.AddListener(StartGame);
             _exitButton.onClick.AddListener(ExitGame);
             _settingsButton.onClick.AddListener(Settings);
-            //_scoreButton.onClick.AddListener(ScoreList);
            // _startMenuAnimations.ForStart();
         }
 
@@ -33,7 +30,6 @@ namespace _1_2_3D.Scripts.ViewController.Menu
             _startButton.onClick.RemoveListener(StartGame);
             _exitButton.onClick.RemoveListener(ExitGame);
             _settingsButton.onClick.RemoveListener(Settings);
-            //_scoreButton.onClick.RemoveListener(ScoreList);
         }
 
         private void StartGame()
@@ -49,13 +45,6 @@ namespace _1_2_3D.Scripts.ViewController.Menu
             _settingsPanel.SetActive(!_isOpened);
             _startPanel.SetActive(_isOpened);
         }
-
-        //private void ScoreList()
-        //{
-        //    _scorePanel.SetActive(!_isOpened);
-        //    _startPanel.SetActive(_isOpened);
-        //    _startMenuAnimations.ForScore();
-        //}
 
         private void ExitGame()
         {

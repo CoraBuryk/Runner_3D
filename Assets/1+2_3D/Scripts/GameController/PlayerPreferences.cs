@@ -1,9 +1,9 @@
-﻿
+﻿using _1_2_3D.Scripts.ViewController.Audio;
 using UnityEngine;
 
 namespace _1_2_3D.Scripts.GameController
 {
-    public class PlayerPref : MonoBehaviour
+    public class PlayerPreferences : MonoBehaviour
     {
         [SerializeField] private AudioController _audioController;
         //[SerializeField] private BestScoreMenu _bestScoreMenu;

@@ -9,15 +9,9 @@ namespace _1_2_3D.Scripts.ViewController.Menu
         [SerializeField] private GameObject _settingsPanel;
         // [SerializeField] private MainMenuAnimations _mainMenuAnimations;
         // [SerializeField] private StartMenuAnimations _startMenuAnimator;
-        //private Button _back;
         [SerializeField] private Button _back;
 
         private bool _isOpened = false;
-
-        //private void Awake()
-        //{
-        //    _back = GetComponent<Button>();
-        //}
 
         public void BackInStart()
         {

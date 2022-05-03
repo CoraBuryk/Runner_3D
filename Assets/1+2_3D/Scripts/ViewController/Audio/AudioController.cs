@@ -3,42 +3,45 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class AudioController : MonoBehaviour
+namespace _1_2_3D.Scripts.ViewController.Audio
 {
-    [SerializeField] private PlayerPref _playerAudioPref;
-    [SerializeField] private AudioMixerGroup _masterGroup;
-    [SerializeField] private Toggle _muteToggle;
-    [SerializeField] public Slider volumeSlider;
-
-    private void OnEnable()
+    public class AudioController : MonoBehaviour
     {
-        _muteToggle.onValueChanged.AddListener(ToggleMute);
-        volumeSlider.onValueChanged.AddListener(_playerAudioPref.ChangeVolume);
-    }
+        [SerializeField] private PlayerPreferences _playerAudioPref;
+        [SerializeField] private AudioMixerGroup _masterGroup;
+        [SerializeField] private Toggle _muteToggle;
+        [SerializeField] public Slider volumeSlider;
 
-    private void OnDisable()
-    {
-        _muteToggle.onValueChanged.RemoveListener(ToggleMute);
-        volumeSlider.onValueChanged.RemoveListener(_playerAudioPref.ChangeVolume);
-    }
-
-    private void Start()
-    {
-        if (!PlayerPrefs.HasKey("MasterVolume"))
+        private void OnEnable()
         {
-            PlayerPrefs.SetFloat("MasterVolume", 1);
-            _playerAudioPref.LoadAudio();
+            _muteToggle.onValueChanged.AddListener(ToggleMute);
+            volumeSlider.onValueChanged.AddListener(_playerAudioPref.ChangeVolume);
         }
-        else
-            _playerAudioPref.LoadAudio();
-    }
 
-    private void ToggleMute(bool mute)
-    {
-        mute = _muteToggle.isOn;
-        if (mute == true)
-            _masterGroup.audioMixer.SetFloat("MasterVolume", -80);
-        else
-            _masterGroup.audioMixer.SetFloat("MasterVolume", 0);
+        private void OnDisable()
+        {
+            _muteToggle.onValueChanged.RemoveListener(ToggleMute);
+            volumeSlider.onValueChanged.RemoveListener(_playerAudioPref.ChangeVolume);
+        }
+
+        private void Start()
+        {
+            if (!PlayerPrefs.HasKey("MasterVolume"))
+            {
+                PlayerPrefs.SetFloat("MasterVolume", 1);
+                _playerAudioPref.LoadAudio();
+            }
+            else
+                _playerAudioPref.LoadAudio();
+        }
+
+        private void ToggleMute(bool mute)
+        {
+            mute = _muteToggle.isOn;
+            if (mute == true)
+                _masterGroup.audioMixer.SetFloat("MasterVolume", -80);
+            else
+                _masterGroup.audioMixer.SetFloat("MasterVolume", 0);
+        }
     }
 }

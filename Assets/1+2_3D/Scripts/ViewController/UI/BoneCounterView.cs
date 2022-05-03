@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace _1_2_3D.Scripts.ViewController
+namespace _1_2_3D.Scripts.ViewController.UI
 {
     public class BoneCounterView: MonoBehaviour
     {
