@@ -1,5 +1,6 @@
-﻿using _1_2_3D.Scripts.ViewController.Animations;
+﻿using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -12,8 +13,7 @@ namespace _1_2_3D.Scripts.ViewController.Menu
         [SerializeField] private Button _settingsButton;
         [SerializeField] private GameObject _settingsPanel;
         [SerializeField] private GameObject _startPanel;
-        [SerializeField] private PlayerAnimator _playerAnimator;
-        //[SerializeField] private StartMenuAnimations _startMenuAnimations;
+        [SerializeField] private PlayableDirector _playableDirector;
 
         private bool _isOpened = false;
 
@@ -22,7 +22,6 @@ namespace _1_2_3D.Scripts.ViewController.Menu
             _startButton.onClick.AddListener(StartGame);
             _exitButton.onClick.AddListener(ExitGame);
             _settingsButton.onClick.AddListener(Settings);
-           // _startMenuAnimations.ForStart();
         }
 
         private void OnDisable()
@@ -32,16 +31,15 @@ namespace _1_2_3D.Scripts.ViewController.Menu
             _settingsButton.onClick.RemoveListener(Settings);
         }
 
-        private void StartGame()
+        private async void StartGame()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            //_playerAnimator.ForStart();
-            //_startMenuAnimations.KillAnimations();
+            _playableDirector.Play();
+            await Task.Delay(2000);
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
         }
 
         private void Settings()
         {
-            //_startMenuAnimations.ForSettings();
             _settingsPanel.SetActive(!_isOpened);
             _startPanel.SetActive(_isOpened);
         }

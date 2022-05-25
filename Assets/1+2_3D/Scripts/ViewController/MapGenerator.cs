@@ -5,42 +5,49 @@ namespace _1_2_3D.Scripts.ViewController
 {
     public class MapGenerator : MonoBehaviour
     {
-        [SerializeField] private Transform player;
-        [SerializeField] private GameObject[] mapPrefabs;
-        private List<GameObject> activeMaps = new List<GameObject>();
-        private float spawnPosition = 0;
-        private float mapLength = 30;
-        private int startMaps = 5;
-
+        [SerializeField] private Transform _player;
+        [SerializeField] private GameObject[] _mapPrefabs;
+        private List<GameObject> _activeMaps = new List<GameObject>();
+        private float _spawnPosition = 28;
+        private const float _mapLength = 30;
+        private int _startMaps = 5;
 
         void Awake()
         {
-            for (int i = 0; i < startMaps; i++)
+            for (int i = 0; i < _startMaps; i++)
             {
-                CreateRoad(Random.Range(0, mapPrefabs.Length));
+                CreateMap(Random.Range(0, _mapPrefabs.Length));
             }
         }
 
         void Update()
         {
-            if (player.position.z - 60 > spawnPosition - (startMaps * mapLength))
+            if (_player.position.z - 60 > _spawnPosition - (_startMaps * _mapLength))
             {
-                CreateRoad(Random.Range(0, mapPrefabs.Length));
-                DeleteRoads();
+                CreateMap(Random.Range(0, _mapPrefabs.Length));
+                DeleteMap();
             }
         }
 
-        private void CreateRoad(int mapIndex)
+        private void CreateMap(int mapIndex)
         {
-            GameObject nextRoad = Instantiate(mapPrefabs[mapIndex], transform.forward * spawnPosition, transform.rotation);
-            activeMaps.Add(nextRoad);
-            spawnPosition += mapLength;
+            GameObject nextRoad = Instantiate(_mapPrefabs[mapIndex], transform.forward * _spawnPosition, transform.rotation);
+            _activeMaps.Add(nextRoad);
+            _spawnPosition += _mapLength;
         }
 
-        private void DeleteRoads()
+        private void DeleteMap()
         {
-            Destroy(activeMaps[0]);
-            activeMaps.RemoveAt(0);
+            Destroy(_activeMaps[0]);
+            _activeMaps.RemoveAt(0);
+        }
+
+        public void DestroyAllMaps()
+        {
+            for(int i = 0; i < _activeMaps.Count; i++)
+            {
+                Destroy(_activeMaps[i]);
+            }
         }
     }
 }

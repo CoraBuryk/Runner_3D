@@ -1,17 +1,16 @@
 ﻿using System;
-using UnityEngine;
 
 namespace _1_2_3D.Scripts.GameController
 {
-    public class BoneCounterContoller : MonoBehaviour
+    public static class BoneCounterContoller
     {
-        public int BoneCounter;
+        public static int BoneCounter { get; set; }
 
-        public int HighScore { get; set; }
+        public static int HighScore { get; set; }
 
-        public event Action BoneCountChange;
+        public static event Action BoneCountChange;
 
-        public void ChangeNumberOfBone(int newCounter)
+        public static void ChangeNumberOfBone(int newCounter)
         {
             BoneCounter = newCounter;
             BoneCountChange?.Invoke();

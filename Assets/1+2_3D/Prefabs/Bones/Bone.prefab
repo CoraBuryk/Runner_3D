@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4394406732135111211}
   - component: {fileID: 4385953763817517341}
   - component: {fileID: 919605531381037849}
-  - component: {fileID: 1841893070544205414}
+  - component: {fileID: 7660248069182269538}
   m_Layer: 0
   m_Name: Bone
   m_TagString: Bone
@@ -27,7 +27,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4361901273267598107}
-  m_LocalRotation: {x: -0.32015324, y: -0.39940596, z: 0.118256, w: 0.8508774}
+  m_LocalRotation: {x: 0.37502196, y: -0.22115822, z: -0.09262071, w: -0.8954714}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -98,11 +98,11 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.72
-  m_Height: 0.2
+  m_Radius: 1
+  m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: -0.000000044703484}
---- !u!114 &1841893070544205414
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7660248069182269538
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4361901273267598107}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68f9a057e9f9cf24ba4c74b61770ed4a, type: 3}
+  m_Script: {fileID: 11500000, guid: a9ebe101b0665df44abece28f726db00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _boneRectTransform: {fileID: 4103318490660981541}
