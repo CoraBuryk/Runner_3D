@@ -1,4 +1,6 @@
 ﻿using _1_2_3D.Scripts.ViewController.Animations;
+using _1_2_3D.Scripts.ViewController.Audio;
+using _1_2_3D.Scripts.ViewController.Menu;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,24 +9,25 @@ namespace _1_2_3D.Scripts.GameController
     public class GameplayController : MonoBehaviour
     {
         [SerializeField] private LevelController _levelController;
-        [SerializeField] private BoneCounterContoller _boneCounterController;
         [SerializeField] private PlayerMovementController _playerMovementController;
         [SerializeField] private HealthController _healthController;
         [SerializeField] private TimerController _timerController;
         [SerializeField] private Button[] _answerButtons;
         [SerializeField] private GameObject _examplePrefab;
         [SerializeField] private PlayerAnimator _playerAnimator;
-        [SerializeField] private Bone bone;
-        [SerializeField] private PlayerPref _playerPref;
-        // [SerializeField] private GameOverMenu _gameOverMenu;
-        [SerializeField] private AudioEffects _audioEffects;
-        //[SerializeField] private MainMenuAnimations _mainMenuAnimations;
+        [SerializeField] private BoneAnimation _boneAnimation;
+        [SerializeField] private PlayerPreferences _playerPref;
+        [SerializeField] private AudioEffectsMainScene _audioEffects;
+        [SerializeField] private GameOverMenu _gameOverMenu;
 
-        private void Start()
+        private const int HighBonus = 20;
+        private const int LowBonus = 10;
+
+        private void Awake()
         {
             StartCoroutine(_timerController.StartTimer());
-           //_timerController.ResetTotalTime();
-
+            TotalTimeController.ResetTotalTime();
+            BoneCounterContoller.BoneCounter = 0;
             _answerButtons[0].onClick.AddListener(() => AnswerButton(1));
             _answerButtons[1].onClick.AddListener(() => AnswerButton(2));
             _answerButtons[2].onClick.AddListener(() => AnswerButton(3));
@@ -32,7 +35,6 @@ namespace _1_2_3D.Scripts.GameController
 
         private void OnEnable()
         {
-            //_mainMenuAnimations.ForMain();
             _timerController.TimerChange += TimeZero;
         }
 
@@ -45,17 +47,14 @@ namespace _1_2_3D.Scripts.GameController
         {
             if (answer == _levelController.Total)
             {
-                AnswerRight();
-                
+                AnswerRight();              
             }
             else
             {
-                AnswerWrong();
-                
+                AnswerWrong();               
             }
+            _timerController.TimerSwitch(0);
             _examplePrefab.SetActive(false);
-            _audioEffects.PlayExampleOff();
-            _audioEffects.PlayMain();
         }
 
         private void AnswerRight()
@@ -75,17 +74,18 @@ namespace _1_2_3D.Scripts.GameController
             _timerController.TimerSwitch(0);
             _levelController.LevelUp();
             _levelController.SetExample();
+            _healthController.HealthDecreased();
         }
 
         private void BoneUpdate()
         {
              if (_timerController.TimeLeft > 5)
              {
-                _boneCounterController.ChangeNumberOfBone(_boneCounterController.BoneCounter *= 2);
+                BoneCounterContoller.ChangeNumberOfBone(BoneCounterContoller.BoneCounter += HighBonus);
              }
              else if (_timerController.TimeLeft <= 5)
              {
-                _boneCounterController.ChangeNumberOfBone(_boneCounterController.BoneCounter += _boneCounterController.BoneCounter);
+                BoneCounterContoller.ChangeNumberOfBone(BoneCounterContoller.BoneCounter += LowBonus);
              }
         }
 
@@ -96,44 +96,41 @@ namespace _1_2_3D.Scripts.GameController
                 _timerController.TimerSwitch(1);
                 _examplePrefab.SetActive(false);
                 _healthController.HealthDecreased();
+                AnswerWrong();
             }
         }
 
         public void Restart()
         {
-            bone.BoneAnimation();
+            _boneAnimation.BoneBehavior();
             _healthController.ResetHealth();
-            _boneCounterController.ChangeNumberOfBone(0);
-            _timerController.ResetTotalTime();
-            _examplePrefab.SetActive(false);
+            BoneCounterContoller.ChangeNumberOfBone(0);
+            TotalTimeController.ResetTotalTime();
         }
 
         public void Continue()
         {
-            bone.BoneAnimation();
-            _timerController.OpenedPauseTime();
-            _timerController.IsPaused = false;
+            _boneAnimation.BoneBehavior();
+            TotalTimeController.OpenedPauseTime();
+            TotalTimeController.IsPaused = false;
         }
 
         public void ActivateTimer()
         {
-            if(_examplePrefab.activeSelf != true)
-            {
-                return;
-            }
             _timerController.TimerSwitch(1);
         }
 
         public void Pause()
         {
-            _timerController.ActivePause();
-            _timerController.IsPaused = true;
+            TotalTimeController.ActivePause();
+            TotalTimeController.IsPaused = true;
             _examplePrefab.SetActive(false);
+            _timerController.TimerSwitch(0);
         }
 
         public void Over()
         {
-            _timerController.ActiveGameTime();
+            TotalTimeController.ActiveGameTime();
             _playerPref.SaveHighScore();
             _timerController.TimerSwitch(0);
         }

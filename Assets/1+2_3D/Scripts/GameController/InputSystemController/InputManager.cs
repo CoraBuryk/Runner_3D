@@ -2,9 +2,8 @@
 using UnityEngine.InputSystem;
 
 
-namespace _1_2_3D.Scripts
+namespace _1_2_3D.Scripts.GameController.InputSystemController
 {
-    [DefaultExecutionOrder(-1)]
     public class InputManager : Singleton<InputManager>
     {
 
@@ -15,47 +14,46 @@ namespace _1_2_3D.Scripts
         public event StartTouch OnEndTouch;
         #endregion
 
-        private PlayerControls playerControls;
-        private Camera mainCamera;
+        private PlayerControls _playerControls;
+        private Camera _mainCamera;
 
         private void Awake()
-        {
-                      
-            playerControls = new PlayerControls();
-            mainCamera = Camera.main; 
+        {          
+            _playerControls = new PlayerControls();
+            _mainCamera = Camera.main; 
         }
 
         private void OnEnable()
         {
-            playerControls.Enable();
+            _playerControls.Enable();
         }
 
         private void OnDisable()
         {
-            playerControls.Disable();
+            _playerControls.Disable();
         }
 
         private void Start()
         {
-            playerControls.Touch.PrimaryContact.started += ctx => StartTouchPrimary(ctx);
-            playerControls.Touch.PrimaryContact.canceled += ctx => EndTouchPrimary(ctx);
+            _playerControls.Touch.PrimaryContact.started += ctx => StartTouchPrimary(ctx);
+            _playerControls.Touch.PrimaryContact.canceled += ctx => EndTouchPrimary(ctx);
         }
 
         private void StartTouchPrimary(InputAction.CallbackContext context)
         {
             if (OnStartTouch != null) 
-                OnStartTouch(Utils.ScreenToWorld(mainCamera, playerControls.Touch.PrimaryPosition.ReadValue<Vector2>()), (float)context.startTime);
+                OnStartTouch(Utils.ScreenToWorld(_mainCamera, _playerControls.Touch.PrimaryPosition.ReadValue<Vector2>()), (float)context.startTime);
         }
 
         private void EndTouchPrimary(InputAction.CallbackContext context)
         {
             if (OnEndTouch != null) 
-                OnEndTouch(Utils.ScreenToWorld(mainCamera, playerControls.Touch.PrimaryPosition.ReadValue<Vector2>()), (float)context.time);
+                OnEndTouch(Utils.ScreenToWorld(_mainCamera, _playerControls.Touch.PrimaryPosition.ReadValue<Vector2>()), (float)context.time);
         }
 
         public Vector2 PrimaryPosition()
         {
-            return Utils.ScreenToWorld(mainCamera, playerControls.Touch.PrimaryPosition.ReadValue<Vector2>());
+            return Utils.ScreenToWorld(_mainCamera, _playerControls.Touch.PrimaryPosition.ReadValue<Vector2>());
         }
     }
 }

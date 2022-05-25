@@ -1,4 +1,5 @@
 ﻿using _1_2_3D.Scripts.GameController;
+using _1_2_3D.Scripts.ViewController.Audio;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
@@ -11,34 +12,43 @@ namespace _1_2_3D.Scripts.ViewController.Menu
     {
         [SerializeField] private Button _restartButton;
         [SerializeField] private Button _exitButton;
-        [SerializeField] private GameObject _mainPanel;
-        [SerializeField] private GameObject _gameOverPanel;
-        [SerializeField] private TextMeshProUGUI _score;
+        [SerializeField] private TextMeshProUGUI _scoreText;
         [SerializeField] private TextMeshProUGUI _scoreBest;
         [SerializeField] private TextMeshProUGUI _time;
-        [SerializeField] private BoneCounterContoller _boneCounterController;
         [SerializeField] private GameplayController _gameplayController;
         [SerializeField] private TimerController _timerController;
+        [SerializeField] private AudioEffectGameOverScene _audioEffectGameOver;
 
-
-        private bool _isOpened = false;
         private int _previousHighScore;
 
         private void OnEnable()
-        {
+        {    
             _restartButton.onClick.AddListener(RestartGame);
             _exitButton.onClick.AddListener(ExitGame);
+            BoneCounterContoller.BoneCountChange += FinalScore;
+            BoneCounterContoller.BoneCountChange += BestScore;
+            TotalTimeController.TotalTimeChange += TotalTime;
         }
 
         private void OnDisable()
         {
             _restartButton.onClick.RemoveListener(RestartGame);
             _exitButton.onClick.RemoveListener(ExitGame);
+            BoneCounterContoller.BoneCountChange -= FinalScore;
+            BoneCounterContoller.BoneCountChange -= BestScore;
+            TotalTimeController.TotalTimeChange -= TotalTime;
+        }
+
+        private void Start()
+        {
+            FinalScore();
+            BestScore();
+            TotalTime();
         }
 
         private string GetStringScore()
         {
-           return LocalizationSettings.StringDatabase.GetLocalizedString("UI Text", "Key_Score");
+            return LocalizationSettings.StringDatabase.GetLocalizedString("UI Text", "Key_Score");
         }
 
         private string GetStringTime()
@@ -63,13 +73,13 @@ namespace _1_2_3D.Scripts.ViewController.Menu
 
         private void FinalScore()
         {
-            _score.text = GetStringScore() + $"{_boneCounterController.BoneCounter}";
+            _scoreText.text = GetStringScore() + $"{BoneCounterContoller.BoneCounter}";
         }
-      
+
         private void TotalTime()
         {
-            int seconds = Mathf.FloorToInt(_timerController.GameTime % 60);
-            int minutes = Mathf.FloorToInt(_timerController.GameTime / 60);
+            int seconds = Mathf.FloorToInt(TotalTimeController.GameTime % 60);
+            int minutes = Mathf.FloorToInt(TotalTimeController.GameTime / 60);
 
             string min = (minutes < 10) ? "" + minutes.ToString() : minutes.ToString();
             string sec = (seconds < 59) ? "" + seconds.ToString() : seconds.ToString();
@@ -80,36 +90,24 @@ namespace _1_2_3D.Scripts.ViewController.Menu
         private void BestScore()
         {
             _scoreBest.enabled = false;
-            if (_previousHighScore < _boneCounterController.HighScore)
+            if (_previousHighScore < BoneCounterContoller.HighScore)
             {
                 _scoreBest.enabled = true;
-                _scoreBest.text = GetBestScoreString() + $"{_boneCounterController.HighScore}";
-                //_audioEffects.PlayOnBestScore();
-                _previousHighScore = _boneCounterController.HighScore;
+                _scoreBest.text = GetBestScoreString() + $"{BoneCounterContoller.BoneCounter}";
+                _audioEffectGameOver.PlayOnBestScore();
+                _previousHighScore = BoneCounterContoller.HighScore;
             }
         }
 
         private void RestartGame()
         {
-            _gameOverPanel.SetActive(_isOpened);
-            _mainPanel.SetActive(!_isOpened);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1, LoadSceneMode.Single);
             _gameplayController.Restart();
         }
 
         private void ExitGame()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-            //_mainAnimations.KillAnimations();
-        }
-
-        public void End()
-        {
-            _mainPanel.SetActive(_isOpened);
-            _gameOverPanel.SetActive(!_isOpened);
-            _gameplayController.Over();
-            BestScore();
-            FinalScore();
-            TotalTime();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2, LoadSceneMode.Single);
         }
     }
 }

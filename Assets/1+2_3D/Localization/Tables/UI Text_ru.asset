@@ -52,7 +52,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 321394609496064
-    m_Localized: "\u0421\u0447\u0435\u0442: "
+    m_Localized: "\u0421\u0447\u0435\u0442:"
     m_Metadata:
       m_Items:
       - id: 0
@@ -81,4 +81,4 @@ MonoBehaviour:
     00000000:
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 002088834e2401000020888c60260100002008be422601000020c8426e760100002048487c760100
+        m_Entries: 002048487c7601000020c8426e7601000020888c60260100002008be42260100002088834e240100

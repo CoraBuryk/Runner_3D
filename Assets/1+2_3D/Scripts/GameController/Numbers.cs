@@ -67,63 +67,63 @@ namespace _1_2_3D.Scripts.GameController
             MathExample = $" {Num1} / {Num2} = ?";
         }
 
-        //public void DoLevelFive()
-        //{     
-        //    do
-        //    {
-        //        Num1 = Random.Range(1, 50);
-        //        Num2 = Random.Range(1, Num1);
-        //        if ((Num1 - Num2) % 2 == 0 && 2 * 1 == (Num1 - Num2) || 2 * 2 == (Num1 - Num2) || 2 * 3 == (Num1 - Num2))
-        //        {
-        //            Result = (Num1 - Num2) / 2;
-        //        }
-        //        else Result = 0;
-        //    } while (Result >= 4 || Result == 0);
+        public void DoLevelFive()
+        {
+            do
+            {
+                Num1 = Random.Range(1, 50);
+                Num2 = Random.Range(1, Num1);
+                if ((Num1 - Num2) % 2 == 0 && 2 * 1 == (Num1 - Num2) || 2 * 2 == (Num1 - Num2) || 2 * 3 == (Num1 - Num2))
+                {
+                    Result = (Num1 - Num2) / 2;
+                }
+                else Result = 0;
+            } while (Result >= 4 || Result == 0);
 
-        //    MathExample = $"({Num1} - {Num2}) / 2 = ?";
-        //}
+            MathExample = $"({Num1} - {Num2}) / 2 = ?";
+        }
 
-        //public void DoLevelSix()
-        //{           
-        //    do
-        //    {
-        //        Num1 = Random.Range(100, 150);
-        //        Num2 = Random.Range(100, Num1);
+        public void DoLevelSix()
+        {
+            do
+            {
+                Num1 = Random.Range(100, 150);
+                Num2 = Random.Range(100, Num1);
 
-        //        if ((Num1 - Num2) % 2 == 0 && 2 * 1 == (Num1 - Num2) || 2 * 2 == (Num1 - Num2) || 2 * 3 == (Num1 - Num2))
-        //        {
-        //            Result = (Num1 - Num2) / 2;
-        //        }
-        //        else Result = 0;
-        //    } while (Result >= 4 || Result == 0);
+                if ((Num1 - Num2) % 2 == 0 && 2 * 1 == (Num1 - Num2) || 2 * 2 == (Num1 - Num2) || 2 * 3 == (Num1 - Num2))
+                {
+                    Result = (Num1 - Num2) / 2;
+                }
+                else Result = 0;
+            } while (Result >= 4 || Result == 0);
 
-        //    MathExample = $"({Num1} - {Num2}) / 2 = ?";
-        //}
+            MathExample = $"({Num1} - {Num2}) / 2 = ?";
+        }
 
-        //public void DoLevelSeven()
-        //{         
-        //    do
-        //    {
-        //        Num1 = Random.Range(1, 50);
-        //        Num2 = Random.Range(1, Num1);
-        //        X = Random.Range(0, 3);
-        //        Result = (Num1 - Num2) * X;
-        //    } while (Result >= 4 || Result == 0);
+        public void DoLevelSeven()
+        {
+            do
+            {
+                Num1 = Random.Range(1, 50);
+                Num2 = Random.Range(1, Num1);
+                X = Random.Range(0, 3);
+                Result = (Num1 - Num2) * X;
+            } while (Result >= 4 || Result == 0);
 
-        //    MathExample = $" ({Num1} - {Num2}) * {X} = ?";
-        //}
+            MathExample = $" ({Num1} - {Num2}) * {X} = ?";
+        }
 
-        //public void DoLevelEight()
-        //{        
-        //    do
-        //    {
-        //        Num1 = Random.Range(50, 100);
-        //        Num2 = Random.Range(50, Num1);
-        //        X = Random.Range(0, 3);
-        //        Result = (Num1 - Num2) * X;
-        //    } while (Result >= 4 || Result == 0);
+        public void DoLevelEight()
+        {
+            do
+            {
+                Num1 = Random.Range(50, 100);
+                Num2 = Random.Range(50, Num1);
+                X = Random.Range(0, 3);
+                Result = (Num1 - Num2) * X;
+            } while (Result >= 4 || Result == 0);
 
-        //    MathExample = $" ({Num1} - {Num2}) * {X} = ?";
-        //}
+            MathExample = $" ({Num1} - {Num2}) * {X} = ?";
+        }
     }
 }

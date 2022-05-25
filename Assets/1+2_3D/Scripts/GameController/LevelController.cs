@@ -13,13 +13,13 @@ namespace _1_2_3D.Scripts.GameController
 
         public event Action LevelChange;
 
-        private const int numbersOfExamplesForLvl1 = 5;
-        private const int numbersOfExamplesForLvl2 = 10;
-        private const int numbersOfExamplesForLvl3 = 15;
-        private const int numbersOfExamplesForLvl4 = 25;
-        //private const int numbersOfExamplesForLvl5 = 35;
-        //private const int numbersOfExamplesForLvl6 = 55;
-        //private const int numbersOfExamplesForLvl7 = 75;
+        private const int NumbersOfExamplesForLvl1 = 5;
+        private const int NumbersOfExamplesForLvl2 = 10;
+        private const int NumbersOfExamplesForLvl3 = 15;
+        private const int NumbersOfExamplesForLvl4 = 25;
+        private const int NumbersOfExamplesForLvl5 = 35;
+        private const int NumbersOfExamplesForLvl6 = 55;
+        private const int NumbersOfExamplesForLvl7 = 75;
 
         private void Awake()
         {
@@ -34,38 +34,38 @@ namespace _1_2_3D.Scripts.GameController
 
         public void SetExample()
         {
-            if (Level <= numbersOfExamplesForLvl1)
+            if (Level <= NumbersOfExamplesForLvl1)
             {
                 _numbers.DoLevelOne();
             }
-            else if (Level <= numbersOfExamplesForLvl2)
+            else if (Level <= NumbersOfExamplesForLvl2)
             {
                 _numbers.DoLevelTwo();
             }
-            else if (Level <= numbersOfExamplesForLvl3)
+            else if (Level <= NumbersOfExamplesForLvl3)
             {
                 _numbers.DoLevelThree();
             }
-            else if (Level <= numbersOfExamplesForLvl4)
+            else if (Level <= NumbersOfExamplesForLvl4)
             {
                 _numbers.DoLevelFour();
             }
-            //else if (Level <= numbersOfExamplesForLvl5)
-            //{
-            //    _numbers.DoLevelFive();
-            //}
-            //else if (Level <= numbersOfExamplesForLvl6)
-            //{
-            //    _numbers.DoLevelSix();
-            //}
-            //else if (Level <= numbersOfExamplesForLvl7)
-            //{
-            //    _numbers.DoLevelSeven();
-            //}
-            //else
-            //{
-            //    _numbers.DoLevelEight();
-            //}
+            else if (Level <= NumbersOfExamplesForLvl5)
+            {
+                _numbers.DoLevelFive();
+            }
+            else if (Level <= NumbersOfExamplesForLvl6)
+            {
+                _numbers.DoLevelSix();
+            }
+            else if (Level <= NumbersOfExamplesForLvl7)
+            {
+                _numbers.DoLevelSeven();
+            }
+            else
+            {
+                _numbers.DoLevelEight();
+            }
             LevelChange?.Invoke();
         }
 

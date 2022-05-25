@@ -1,77 +1,57 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
-namespace _1_2_3D.Scripts
+namespace _1_2_3D.Scripts.GameController.InputSystemController
 {
     public class SwipeDetection : MonoBehaviour
     {
-        [SerializeField] private float minimumDistance = 0.1f; //0.2f
-        [SerializeField] private float maximumTime = 1f;
-        [SerializeField] private GameObject trail;
-        [SerializeField] private PlayerMovementController playerMovementController;
-        private InputManager inputManager;
-
-        private Vector2 startPosition;
-        private float startTime;
-        private Vector2 endPosition;
-        private float endTime;
-
-        private Coroutine coroutine;
+        [SerializeField] private float _minimumDistance = 0.01f;
+        [SerializeField] private float _maximumTime = 1f;
+        [SerializeField] private PlayerMovementController _playerMovementController;
+        private InputManager _inputManager;
+        private Vector2 _startPosition;
+        private float _startTime;
+        private Vector2 _endPosition;
+        private float _endTime;
 
         private void Awake()
         {
-            inputManager = InputManager.Instance;
+            _inputManager = InputManager.Instance;
         }
 
         private void OnEnable()
         {
-            inputManager.OnStartTouch += SwipeStart;
-            inputManager.OnEndTouch += SwipeEnd;
+            _inputManager.OnStartTouch += SwipeStart;
+            _inputManager.OnEndTouch += SwipeEnd;
 
         }
         private void OnDisable()
         {
-            inputManager.OnStartTouch -= SwipeStart;
-            inputManager.OnEndTouch -= SwipeEnd;
+            _inputManager.OnStartTouch -= SwipeStart;
+            _inputManager.OnEndTouch -= SwipeEnd;
         }
 
         private void SwipeStart(Vector2 position, float time)
         {
-            startPosition = position;
-            startTime = time;
-            trail.SetActive(true);
-            trail.transform.position = position;
-            coroutine = StartCoroutine(Trail());
-        }
-
-        private IEnumerator Trail()
-        {
-            while (true)
-            {
-                trail.transform.position = inputManager.PrimaryPosition();
-                yield return null;
-            }
+            _startPosition = position;
+            _startTime = time;
         }
 
         private void SwipeEnd(Vector2 position, float time)
         {
-            trail.SetActive(false);
-            StopCoroutine(coroutine);
-            endPosition = position;
-            endTime = time;
+            _endPosition = position;
+            _endTime = time;
             DetectSwipe();
         }
 
         private void DetectSwipe()
         {
-            if(Vector3.Distance(startPosition,endPosition) >= minimumDistance &&
-               (endTime - startTime) <= maximumTime)
+            if(Vector3.Distance(_startPosition,_endPosition) >= _minimumDistance &&
+               (_endTime - _startTime) <= _maximumTime)
             {
-                Debug.Log("swipe");
-                Vector3 direction = endPosition - startPosition;
+                Vector3 direction = _endPosition - _startPosition;
                 Vector2 direction2D = new Vector2(direction.x,direction.y).normalized;
-                playerMovementController.SwipeDirection(direction2D);
-                
+                _playerMovementController.SwipeDirection(direction2D);              
             }
         }
     }

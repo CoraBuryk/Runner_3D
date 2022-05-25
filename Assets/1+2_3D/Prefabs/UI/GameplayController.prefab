@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2802340925787512698
+--- !u!1 &4442468913947061548
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,14 +8,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2802340925787512692}
-  - component: {fileID: 2802340925787512693}
-  - component: {fileID: 1601874451810168131}
-  - component: {fileID: 2051171463649865259}
-  - component: {fileID: 2958502146906995264}
-  - component: {fileID: 7953837547523308703}
-  - component: {fileID: 7186765325401475979}
-  - component: {fileID: 3427781000549544329}
+  - component: {fileID: 4442468913947061538}
+  - component: {fileID: 972280104089952021}
+  - component: {fileID: 518479509731253373}
+  - component: {fileID: 8441028636036255433}
+  - component: {fileID: 1665477555280192687}
   m_Layer: 0
   m_Name: GameplayController
   m_TagString: Untagged
@@ -23,13 +20,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2802340925787512692
+--- !u!4 &4442468913947061538
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2802340925787512698}
+  m_GameObject: {fileID: 4442468913947061548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -37,118 +34,70 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2802340925787512693
+--- !u!114 &972280104089952021
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2802340925787512698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dd0977e34dd5654f81a11e8383bdce8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BoneCounter: 0
---- !u!114 &1601874451810168131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2802340925787512698}
+  m_GameObject: {fileID: 4442468913947061548}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46a1ecaeab9a844468ad647be3b02b9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2051171463649865259
+--- !u!114 &518479509731253373
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2802340925787512698}
+  m_GameObject: {fileID: 4442468913947061548}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e9c400c12f5ab046a98aa1eedddec82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelController: {fileID: 1601874451810168131}
-  _boneCounterController: {fileID: 2802340925787512693}
-  _playerMovementController: {fileID: 8226357784048507593, guid: 15f1038afdaf7664dbe6368d1c8ebcd2,
-    type: 3}
-  _healthController: {fileID: 7953837547523308703}
-  _timerController: {fileID: 2958502146906995264}
+  _levelController: {fileID: 972280104089952021}
+  _playerMovementController: {fileID: 0}
+  _healthController: {fileID: 8441028636036255433}
+  _timerController: {fileID: 1665477555280192687}
   _answerButtons:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   _examplePrefab: {fileID: 8796458560291796831, guid: b0df1aa796835724d87740ab4fff2d38,
     type: 3}
-  _playerAnimator: {fileID: 6135023785416807311, guid: 15f1038afdaf7664dbe6368d1c8ebcd2,
+  _playerAnimator: {fileID: 0}
+  _boneAnimation: {fileID: 7660248069182269538, guid: 8be9c141a43cdab4d919583411b74bab,
     type: 3}
-  bone: {fileID: 0}
+  _playerPref: {fileID: 4775466280338398466, guid: fe861b326f47602499474920d36e2079,
+    type: 3}
   _audioEffects: {fileID: 0}
---- !u!114 &2958502146906995264
+  _gameOverMenu: {fileID: 0}
+--- !u!114 &8441028636036255433
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2802340925787512698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57713df5ef8e08f4282574e5b3e60a13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gameplayController: {fileID: 2051171463649865259}
-  _timer: 10
-  GameTime: 0
-  ActiveTime: 0
-  _activeTimeForPause: 0
-  _pausedTime: 0
---- !u!114 &7953837547523308703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2802340925787512698}
+  m_GameObject: {fileID: 4442468913947061548}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fdf59110be025374790f01897546eb52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 3
---- !u!114 &7186765325401475979
+--- !u!114 &1665477555280192687
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2802340925787512698}
+  m_GameObject: {fileID: 4442468913947061548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 659f882efa06b2340bdfb81a89bb9565, type: 3}
+  m_Script: {fileID: 11500000, guid: 57713df5ef8e08f4282574e5b3e60a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerAudioPref: {fileID: 0}
-  _masterGroup: {fileID: -2511859713445769474, guid: 9a000e428c6fb4e46ad92be562ac5697,
-    type: 2}
-  _muteToggle: {fileID: 0}
-  volumeSlider: {fileID: 0}
---- !u!114 &3427781000549544329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2802340925787512698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c967cb62464c8e429dcabc6a18f8761, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioController: {fileID: 7186765325401475979}
-  _boneCounterController: {fileID: 2802340925787512693}
+  _timer: 0

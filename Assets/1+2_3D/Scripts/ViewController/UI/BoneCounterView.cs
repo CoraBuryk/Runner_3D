@@ -2,21 +2,20 @@
 using TMPro;
 using UnityEngine;
 
-namespace _1_2_3D.Scripts.ViewController
+namespace _1_2_3D.Scripts.ViewController.UI
 {
     public class BoneCounterView: MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _bones;
-        [SerializeField] private BoneCounterContoller boneCounterController;
 
         private void OnEnable()
         {
-            boneCounterController.BoneCountChange += HandleCounterDelegate;
+            BoneCounterContoller.BoneCountChange += HandleCounterDelegate;
         }
 
         private void OnDisable()
         {
-            boneCounterController.BoneCountChange -= HandleCounterDelegate;
+            BoneCounterContoller.BoneCountChange -= HandleCounterDelegate;
         }
 
         private void Start()
@@ -26,7 +25,7 @@ namespace _1_2_3D.Scripts.ViewController
 
         public void HandleCounterDelegate()
         {
-            _bones.text = $"{boneCounterController.BoneCounter}";
+            _bones.text = $"{BoneCounterContoller.BoneCounter}";
         }
     }
 }

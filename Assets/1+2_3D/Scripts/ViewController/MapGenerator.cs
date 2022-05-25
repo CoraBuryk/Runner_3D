@@ -1,43 +1,53 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapGenerator : MonoBehaviour
+namespace _1_2_3D.Scripts.ViewController
 {
-    [SerializeField] private Transform player;
-    [SerializeField] private GameObject[] mapPrefabs;
-    private List<GameObject> activeMaps = new List<GameObject>();
-    private float spawnPosition = 0;
-    private float mapLength = 30;
-    private int startMaps = 5;
-
-
-    void Awake()
+    public class MapGenerator : MonoBehaviour
     {
-        for (int i = 0; i < startMaps; i++)
+        [SerializeField] private Transform _player;
+        [SerializeField] private GameObject[] _mapPrefabs;
+        private List<GameObject> _activeMaps = new List<GameObject>();
+        private float _spawnPosition = 28;
+        private const float _mapLength = 30;
+        private int _startMaps = 5;
+
+        void Awake()
         {
-            CreateRoad(Random.Range(0, mapPrefabs.Length));
+            for (int i = 0; i < _startMaps; i++)
+            {
+                CreateMap(Random.Range(0, _mapPrefabs.Length));
+            }
         }
-    }
 
-    void Update()
-    {
-        if (player.position.z - 60 > spawnPosition - (startMaps * mapLength))
+        void Update()
         {
-            CreateRoad(Random.Range(0, mapPrefabs.Length));
-            DeleteRoads();
+            if (_player.position.z - 60 > _spawnPosition - (_startMaps * _mapLength))
+            {
+                CreateMap(Random.Range(0, _mapPrefabs.Length));
+                DeleteMap();
+            }
         }
-    }
 
-    private void CreateRoad(int mapIndex)
-    {
-        GameObject nextRoad = Instantiate(mapPrefabs[mapIndex], transform.forward * spawnPosition, transform.rotation);
-        activeMaps.Add(nextRoad);
-        spawnPosition += mapLength;
-    }
+        private void CreateMap(int mapIndex)
+        {
+            GameObject nextRoad = Instantiate(_mapPrefabs[mapIndex], transform.forward * _spawnPosition, transform.rotation);
+            _activeMaps.Add(nextRoad);
+            _spawnPosition += _mapLength;
+        }
 
-    private void DeleteRoads()
-    {
-        Destroy(activeMaps[0]);
-        activeMaps.RemoveAt(0);
+        private void DeleteMap()
+        {
+            Destroy(_activeMaps[0]);
+            _activeMaps.RemoveAt(0);
+        }
+
+        public void DestroyAllMaps()
+        {
+            for(int i = 0; i < _activeMaps.Count; i++)
+            {
+                Destroy(_activeMaps[i]);
+            }
+        }
     }
 }
