@@ -24,17 +24,16 @@ namespace _1_2_3D.Scripts.ViewController.Animations
         {
             if(_playableDirector.state != PlayState.Playing)
             {
-            _playerMovementController.IsStop = false;
-            _playerMovementController.Speed = 10;
-            _playerAnimator.SetBool(Run, true);
-            _playerAnimator.SetBool(Jump, false);
-            _playerAnimator.SetBool(Falling, false);
-            _playerAnimator.SetBool(Right, false);
-            _playerAnimator.SetBool(Wrong, false);
-            _playerAnimator.SetBool(Pause, false);
-            _playerAnimator.SetBool(Break, false);
+                _playerMovementController.IsStop = false;
+                _playerMovementController.Speed = 10;
+                _playerAnimator.SetBool(Run, true);
+                _playerAnimator.SetBool(Jump, false);
+                _playerAnimator.SetBool(Falling, false);
+                _playerAnimator.SetBool(Right, false);
+                _playerAnimator.SetBool(Wrong, false);
+                _playerAnimator.SetBool(Pause, false);
+                _playerAnimator.SetBool(Break, false);
             }
-
         }
 
         private void ForJump()
@@ -61,15 +60,13 @@ namespace _1_2_3D.Scripts.ViewController.Animations
 
         public void ForFalling()
         {
-
-                _playerAnimator.SetBool(Run, false);
-                _playerAnimator.SetBool(Jump, false);
-                _playerAnimator.SetBool(Falling, true);
-                _playerAnimator.SetBool(Right, false);
-                _playerAnimator.SetBool(Wrong, false);
-                _playerAnimator.SetBool(Pause, false);
-                _playerAnimator.SetBool(Break, false);
-            
+            _playerAnimator.SetBool(Run, false);
+            _playerAnimator.SetBool(Jump, false);
+            _playerAnimator.SetBool(Falling, true);
+            _playerAnimator.SetBool(Right, false);
+            _playerAnimator.SetBool(Wrong, false);
+            _playerAnimator.SetBool(Pause, false);
+            _playerAnimator.SetBool(Break, false);
         }
 
         private void ForRight()
@@ -99,7 +96,10 @@ namespace _1_2_3D.Scripts.ViewController.Animations
             _playerMovementController.IsStop = true;
             ForRight();
             await Task.Delay(1500);
-            ForRun();
+            if (_pauseMenu.activeSelf == false)
+            {
+                ForRun();
+            }
         }
 
         public async void WrongAnswer()
@@ -107,7 +107,10 @@ namespace _1_2_3D.Scripts.ViewController.Animations
             _playerMovementController.IsStop = true;
             ForWrong();
             await Task.Delay(2000);
-            ForRun();
+            if (_pauseMenu.activeSelf == false)
+            {
+                ForRun();
+            }
         }
 
         public async void Jumping()

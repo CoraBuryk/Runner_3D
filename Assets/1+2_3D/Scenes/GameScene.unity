@@ -2460,6 +2460,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 393493847567038539, guid: 1b43d06d89dfe5f45b385c0b66835195,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1090138053045274001, guid: 1b43d06d89dfe5f45b385c0b66835195,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3653423464471706802, guid: 1b43d06d89dfe5f45b385c0b66835195,
         type: 3}
       propertyPath: m_Name
@@ -2529,6 +2539,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6638915804245273045, guid: 1b43d06d89dfe5f45b385c0b66835195,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b43d06d89dfe5f45b385c0b66835195, type: 3}
@@ -3434,7 +3449,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 300
+  far clip plane: 145
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -3442,7 +3457,7 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingPath: -1
+  m_RenderingPath: 1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
@@ -3450,7 +3465,7 @@ Camera:
   m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 0
+  m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &963194228
@@ -7188,7 +7203,7 @@ PrefabInstance:
     - target: {fileID: 1839398452596576346, guid: 15f1038afdaf7664dbe6368d1c8ebcd2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.02
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1839398452596576346, guid: 15f1038afdaf7664dbe6368d1c8ebcd2,
         type: 3}
@@ -7232,13 +7247,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3798630568732321968, guid: 15f1038afdaf7664dbe6368d1c8ebcd2,
         type: 3}
+      propertyPath: m_Height
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798630568732321968, guid: 15f1038afdaf7664dbe6368d1c8ebcd2,
+        type: 3}
       propertyPath: m_Radius
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3798630568732321968, guid: 15f1038afdaf7664dbe6368d1c8ebcd2,
         type: 3}
       propertyPath: m_Center.y
-      value: 0.829
+      value: 0.49
       objectReference: {fileID: 0}
     - target: {fileID: 6083569167443624018, guid: 15f1038afdaf7664dbe6368d1c8ebcd2,
         type: 3}

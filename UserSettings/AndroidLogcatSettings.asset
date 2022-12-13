@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "R58M44VXSEM",
         "name": "com.DefaultCompany.Runner_3D",
-        "processId": 12540,
+        "processId": 25147,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -162,6 +162,12 @@
             "deviceId": "R58M44VXSEM",
             "name": "com.DefaultCompany.Runner_3D",
             "processId": 12540,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M44VXSEM",
+            "name": "com.DefaultCompany.Runner_3D",
+            "processId": 25147,
             "exited": false
         }
     ],
