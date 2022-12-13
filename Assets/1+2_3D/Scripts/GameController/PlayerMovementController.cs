@@ -23,6 +23,7 @@ namespace _1_2_3D.Scripts.GameController
         private int _lineToMove = 1;
         private float _jumpForce = 10f;
         private float _gravity = -20;
+        private bool _isGrounded = true;
 
         private void Start()
         {
@@ -40,7 +41,7 @@ namespace _1_2_3D.Scripts.GameController
 
         public void SwipeDirection(Vector2 direction)
         {
-            if (Vector2.Dot(Vector2.up, direction) > _directionThreshold && IsStop != true)
+            if (Vector2.Dot(Vector2.up, direction) > _directionThreshold && IsStop != true && _isGrounded == true)
             {
                 Jump();
             }
@@ -79,6 +80,7 @@ namespace _1_2_3D.Scripts.GameController
             _audioEffects.PlayJump();
             _direction.y = _jumpForce;
             _playerAnimator.Jumping();
+            _isGrounded = false;
         }
 
         private void FixedUpdate()
@@ -116,6 +118,12 @@ namespace _1_2_3D.Scripts.GameController
                 _playerAnimator.ForBreak();
                 IsStop = true;
             }
+
+            if (other.gameObject.tag == "Floor")
+            {
+                _isGrounded = true;
+            }
+                
         }
     }
 }
